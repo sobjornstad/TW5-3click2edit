@@ -1,5 +1,7 @@
 title: $:/plugins/danielo515/2click2edit/readme
 
+Modified by Soren Bjornstad to require 3 clicks instead of 2.
+
 This plugin adds the ability to edit tiddlers by double clicking on its body.
 Just try to edit any tiddler shown here by double clicking on it.
 
