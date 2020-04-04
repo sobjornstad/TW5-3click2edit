@@ -33,11 +33,16 @@ ClickListener.prototype.render = function(parent,nextSibling) {
 	var self = this;
     /*Since the event listener have been added to the parent, the "this" property is pointing to the
     wrong object, we should call our edit function with our widget object set as the this property.*/
-    parent.addEventListener("dblclick",function(event){self.editTiddler.call(self,event)});
+    /* https://stackoverflow.com/questions/6480060/how-do-i-listen-for-triple-clicks-in-javascript */
+    parent.addEventListener("click", function (event) {
+        if (event.detail === 3) {
+            self.editTiddler.call(self, event);
+        }
+    });
 };
 
 ClickListener.prototype.editTiddler = function(event) {
-    this.dispatchEvent({type: "tm-edit-tiddler", param: this.getVariable("currentTiddler")});    
+    this.dispatchEvent({type: "tm-edit-tiddler", param: this.getVariable("currentTiddler")});
 };
 
 /*
